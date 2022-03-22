@@ -1,6 +1,6 @@
 import { ApolloProvider } from "@apollo/client";
 import React from "react";
-import { client } from "./GraphQl/client";
+import { client } from "./graphQL/client";
 import LaunchesQuery from "./components/launchesQuery/LaunchesQuery";
 import "./app.scss";
 

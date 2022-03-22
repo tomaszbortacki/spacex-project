@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { GET_LAUNCHES } from "../../GraphQl/launches";
+import { GET_LAUNCHES } from "../../graphQL/launches";
 import LaunchesList from "../launchesList/LaunchesList";
 import { useQuery } from "@apollo/client";
 import { TLaunches } from "../../model";
