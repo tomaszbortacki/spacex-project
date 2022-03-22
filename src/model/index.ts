@@ -1,4 +1,4 @@
-interface ILaunches {
+export interface ILaunches {
   launch_success: boolean;
   mission_name: string;
   rocket: {

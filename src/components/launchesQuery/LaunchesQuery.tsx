@@ -3,6 +3,7 @@ import { GET_LAUNCHES } from "../../GraphQl/launches";
 import LaunchesList from "../launchesList/LaunchesList";
 import { useQuery } from "@apollo/client";
 import { TLaunches } from "../../model";
+import StateHandler from "../stateHandler/StateHandler";
 
 const LaunchesQuery = () => {
   const [offset, setOffset] = useState<number>(0);
@@ -15,26 +16,20 @@ const LaunchesQuery = () => {
 
   const loadMore = () => {
     setOffset(launches.length);
+    refetch();
   };
 
   useEffect(() => {
-    console.log(data);
-
     if (data && "launches" in data) {
       setLaunches((prevState) => [...prevState, ...data.launches]);
     }
   }, [data]);
 
-  if (loading) return <h1>Loading...</h1>;
-  if (error) return <h1>Something went wrong</h1>;
-
   return (
-    launches.length && (
-      <>
-        {/* <LaunchesList launches={data.launches} loadMore={loadMore} /> */}
-        <button onClick={loadMore}>LoadMore</button>
-      </>
-    )
+    <>
+      <StateHandler loading={loading} error={error} />
+      <LaunchesList launches={launches} loadMore={loadMore} />
+    </>
   );
 };
 
