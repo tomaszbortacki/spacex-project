@@ -7,6 +7,7 @@ import StateHandler from "../stateHandler/StateHandler";
 
 const LaunchesQuery = () => {
   const [offset, setOffset] = useState<number>(0);
+  const [end, setEnd] = useState<boolean>(false);
   const [launches, setLaunches] = useState<TLaunches>([]);
   const { data, loading, error, refetch } = useQuery(GET_LAUNCHES, {
     variables: {
@@ -15,12 +16,17 @@ const LaunchesQuery = () => {
   });
 
   const loadMore = () => {
-    setOffset(launches.length);
-    refetch();
+    if (!end) {
+      setOffset(launches.length);
+      refetch();
+    }
   };
 
   useEffect(() => {
     if (data && "launches" in data) {
+      if (!data.launches.length) {
+        setEnd(true);
+      }
       setLaunches((prevState) => [...prevState, ...data.launches]);
     }
   }, [data]);

@@ -11,11 +11,18 @@ interface Props {
 
 const LaunchesList = ({ launches, loadMore }: Props) => {
   return (
-    <ul className={"launchesList"} onScroll={(event) => handleScroll(event, loadMore)}>
-      {launches.map((launch, key) => (
-        <Launch key={key} {...launch} />
-      ))}
-    </ul>
+    <section className={"launchesList"}>
+      <h1 className={"launchesList__header"}>Launches</h1>
+      {launches.length ? (
+        <ul className={"launchesList__list"} onScroll={(event) => handleScroll(event, loadMore)}>
+          {launches.map((launch, key) => (
+            <Launch key={key} {...launch} />
+          ))}
+        </ul>
+      ) : (
+        ""
+      )}
+    </section>
   );
 };
 

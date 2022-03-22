@@ -1,4 +1,12 @@
+@use "../../styles/colors" as colors;
+
 .launch {
   display: block;
-  background-color: black;
+  background-color: colors.$success;
+  padding: 0.3rem 0.7rem;
+  border-radius: 3px;
+
+  &__error {
+    background-color: colors.$failed;
+  }
 }

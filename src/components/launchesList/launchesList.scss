@@ -1,17 +1,26 @@
 @use "../../styles/colors" as colors;
 
 .launchesList {
-  background-color: colors.$listBackground;
-  list-style-type: none;
-  border-radius: 3px;
-  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.05);
-  overflow: auto;
-  height: 350px;
-  width: 100%;
-  max-width: 700px;
   margin: 150px auto;
-  padding: 1rem;
-  display: grid;
-  grid-gap: 1rem;
-  gap: 1rem;
+  max-width: 700px;
+
+  &__header {
+    color: colors.$listBackground;
+    margin-bottom: 1rem;
+    font-size: 45px;
+  }
+
+  &__list {
+    background-color: colors.$listBackground;
+    list-style-type: none;
+    border-radius: 3px;
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.05);
+    height: 350px;
+    width: 100%;
+    overflow: auto;
+    padding: 1rem;
+    display: grid;
+    grid-gap: 1rem;
+    gap: 1rem;
+  }
 }

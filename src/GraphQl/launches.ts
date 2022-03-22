@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 export const GET_LAUNCHES = gql`
   query launches($offset: Int!) {
     launches(limit: 10, offset: $offset) {
+      id
       launch_success
       mission_name
       rocket {
