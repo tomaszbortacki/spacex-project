@@ -1,7 +1,7 @@
 import React from "react";
 import { handleScroll } from "../../helpers";
 import { TLaunches } from "../../model";
-import Launch from "../launch/launch";
+import Launch from "../launch/Launch";
 import "./launchesList.scss";
 
 interface Props {
